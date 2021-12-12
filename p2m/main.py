@@ -43,30 +43,6 @@ def play_tone_1(FADlist, fs, stream):
     for n in range(T):
         stream.write(data)
 
-# This is take two, a rewrite trying to understand the specifics of how pyaudio goes and makes a soundwave
-#def play_tone(FADlist, fs, stream):
-    ## if you do a fancy try catch or if else structure here you can make it so
-    ## that the older examples with just one argument work as well, IE setting defaults for
-    ## each of the values frequency, amplitude, and duration
-    #frequency = FADlist[0]
-    ## I'm gonna try and tune this real quick
-    ## going with 213 as our input
-#
-    #amplitude = 3
-    #duration = FADlist[2]
-#
-    #N = int(fs * .05)
-    #T = int(frequency * .05)  # repeat for T cycles
-    #dt = 1.0 / fs
-#
-    #tone = (amplitude * math.sin(
-        #2 * math.pi * 440 * (2 ** (1 / 12)) ** round((log(frequency / 440)) / (log((2 ** (1 / 12))))) * n * dt)
-            #for n in range(N))
-#
-    #data = b''.join(struct.pack('f', samp) for samp in tone)
-    #for n in range(T):
-        #stream.write(data)
-
 
 # Simple addition for IDIOTS
 def RGBToHertzExOne(RedVal, GreenVal, BlueVal):
@@ -91,16 +67,15 @@ def RGBToHertzExThree(R, G, B):
     return coolShit
 
 
-arr = imageio.imread('SampleImages/oneCoolGuy.jpg')
+arr = imageio.imread('SampleImages/myWholeEyeball.jpg')
 
 a = 0
 
 for x in arr:
     # break #uncomment to unskip
     for n in x:
-        print(n)
+        #print(n)
         DefaultTonePlayer.DefaultTonePlayer().play_tone(n)
-    print(a)
     break
 
 

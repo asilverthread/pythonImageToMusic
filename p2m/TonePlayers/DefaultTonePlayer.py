@@ -21,5 +21,8 @@ class DefaultTonePlayer(TonePlayer, ABC):
         tone = ToneUtils.calc_tone(amplitude, frequency, sample_rate)
 
         data = b''.join(struct.pack('f', samp) for samp in tone)
+        #print(data)
         for n in range(int(frequency * .05)):
             stream.write(data)
+            #print(data)
+            pass
